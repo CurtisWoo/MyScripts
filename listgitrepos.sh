@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a gitdic
+declare -A gitdic
 repolist=()
 while IFS= read -d $'\0' -r file ; do
     dir=$(basename "$(dirname "$file")")
@@ -9,3 +9,7 @@ while IFS= read -d $'\0' -r file ; do
 done < <(find ~ -type d -name .git -print0)
 
 choice=$(echo -e "$repolist" | dmenu)
+if [ -n "$choice" ]
+then 
+    termite -d "${gitdic["$choice"]}" &
+fi
