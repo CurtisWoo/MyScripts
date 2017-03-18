@@ -8,8 +8,10 @@ then
   echo "Create directory name 'html'."
 fi
 
-# execute pandoc command for all .html files in current directory.
+# execute pandoc command for files passed as arguments.
+files=( $@ )
 
-for file in *.md;
-    do pandoc "$file" --highlight-style=kate --template=foundation.html5 -o "./html/${file%.md}.html";
+for file in "${files[@]}"
+do
+    pandoc "$file" --highlight-style=kate --template=foundation.html5 -o "./html/${file%.md}.html";
 done
