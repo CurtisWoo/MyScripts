@@ -7,12 +7,12 @@ last=$BASH_ARGV
 
 if [ "$#" -ge 2 ] && [ -d "$last" ]
 then
-    echo "There are:" $# "files"
     for file in "${files[@]}"; do
         if [[ "$file" == *".md" ]]; then
         pandoc "$file" --highlight-style=kate --template=foundation.html5 -o "$last/${file%.md}.html"
         fi
     done
+    echo "Completed."
 else
     echo "$USAGE"
     exit 1
