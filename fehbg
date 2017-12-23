@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-scale '/home/curtis/Media/Photos/wallpapers/arch-os.jpg' 
+'feh' '--bg-scale' '/home/curtis/Media/Photos/wallpapers/arch-os.jpg' 
